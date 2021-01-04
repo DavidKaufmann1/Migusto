@@ -153,7 +153,7 @@ Rezepte_backup<-Rezepte
   
 write.csv(Migusto_Daten, '/Users/davidkaufmann/Documents/Bewerbungen/Job21/Digital Analyst Migros/Project/Migusto_Daten.csv')
 
-###Analyse
+###play around Analyse
 str(Migusto_Daten)
 
 Migusto_Daten_R <- Migusto_Daten %>%
