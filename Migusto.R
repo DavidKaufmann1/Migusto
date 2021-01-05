@@ -31,7 +31,7 @@ for (i in 1:506) {
     slice(1:(n()-1))%>%
     rename_at(1,~"Rezept")
   
-  Rezepte<-rbind(Migusto, Rezepte)
+  Rezepte<-rbind(Migusto, Rezepte) #erstellt data.frame mit allen Rezeptnamen 
 }
 Rezepte_backup<-Rezepte
 
@@ -49,7 +49,7 @@ Rezepte_backup<-Rezepte
   mutate(Rezept=str_replace_all(Rezept,'ù','u'))%>%
   mutate(Rezept=str_replace_all(Rezept,',',''))%>%
   mutate(Rezept=str_replace_all(Rezept,'ô',''))%>%
-  mutate(Rezept=str_replace_all(Rezept,'û',''))
+  mutate(Rezept=str_replace_all(Rezept,'û','')) #bringt die Rezeptnamen in ein Format, mit denen nachher die einzelnen Rezepte gescraped werden können
   
   
 ### Mit den gescrapten Namen der Rezepte die einzelnen Rezept-Pages aufrufen und Eigenschaften der Rezepte scrapen
@@ -122,6 +122,7 @@ Rezepte_backup<-Rezepte
   
   write.csv(final, '/Users/davidkaufmann/Documents/Bewerbungen/Job21/Digital Analyst Migros/Project/Backup/final_backup.csv') 
   
+#Die Attributwerte (Mexikanisch, Italienisch, ...) befinden sich noch alle in der gleichen Spale, nachfolgend werden die Attribute in verschiedene Spalten aufgeteilt und die Werte allgemein bereinigt.
   Migusto_Daten <- final %>%
     mutate(Bewertung=str_remove_all(Bewertung, 'Bewertung: '))%>%
     mutate(Anzahl=str_remove_all(Anzahl, '[()]'))%>%
