@@ -5,6 +5,7 @@ library(rvest)
 library(stringr)
 Sys.setenv("LANG"='en')
 
+#Permissions für Webseiten-Scrape checken
 get_robotstxt('https://migusto.migros.ch/de/rezept-uebersicht/')
 robo<-robotstxt(domain = 'https://migusto.migros.ch/de/rezept-uebersicht/')
 robo$domain
